@@ -10,7 +10,7 @@ spec:
     targetRevision: HEAD
     path: deployments
   destination:
-    server: dev
+    server: infra
     namespace: echo-server
   syncPolicy:
     automated:
