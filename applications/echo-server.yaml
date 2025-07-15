@@ -10,7 +10,28 @@ spec:
     targetRevision: HEAD
     path: deployments
   destination:
-    server: infra
+    server: dev
+    namespace: echo-server
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: echo-server
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/sglahn/echo-server
+    targetRevision: HEAD
+    path: deployments
+  destination:
+    server: prod
     namespace: echo-server
   syncPolicy:
     automated:
