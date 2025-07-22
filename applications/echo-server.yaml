@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/sglahn/echo-server
     targetRevision: HEAD
-    path: deployments
+    path: deployments/prod
   destination:
     name: prod
     namespace: echo-server
